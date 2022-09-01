@@ -11,7 +11,7 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false}));
-app.use(express.static(path.join(_direname, 'public')));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(_dirname, 'public')));
 
 sequelize.sync({ force: false});
