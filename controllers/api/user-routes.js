@@ -4,14 +4,19 @@ const { User } = require("../../models");
 // Requirement: GET and POST routes for retrieving and adding new data
 
 router.get("/", (req, res) => {
-  User.findAll({
-    attributes: { exclude: ["password"] },
-  });
+    User.findAll({
+        attributes: { exclude: ["password"] },
+    })
+        .then(dbUserData => res.json(dbUserData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 router.get("/:id", (req, res) => {
     User.findOne({
-        attributes: {exclude: ["password"]},
+        attributes: { exclude: ["password"] },
         where: {
             id: req.params.id
         }
@@ -23,54 +28,23 @@ router.post("/", (req, res) => {
     User.create({
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
     })
         .then(dbUser => {
             req.session.save(() => {
-                req.session.id = dbUser.id;
-                req.session.username = dbUser.username;
+                req.session.user_id = dbUserData.id;
+                req.session.username = dbUserData.username;
                 req.session.loggedIn = true;
-                res.json(dbUser)
-            })
+                res.json(dbUser);
+            });
         })
 });
+
 
 router.post("login", (req, res) => {
     User.findOne({
         where: {
             email: req.body.email
-        }
-    })
-        .then(dbUser => {
-            const validate = dbUser.checkPassword(req.body.password)
-        })
-    req.session.save(() => {
-        req.session.id = dbUser.id;
-        req.session.username = dbUser.username;
-        req.session.loggedIn = true;
-    })    
-})
-
-router.post("/", (req, res) => {
-  User.create({
-    username: req.body.username,
-    email: req.body.email,
-    password: req.body.password,
-  })
-    .then(dbUser => {
-        req.session.save(() => {
-            req.session.user_id = dbUserData.id;
-            req.session.username = dbUserData.username;
-            req.session.loggedIn = true;
-            res.json(dbUser);
-        });
-    })    
-});
-
-router.post("login", (req, res) => {
-    User.findOne({
-        where: {
-            email:req.body.email
         }
     })
         .then(dbUser => {
@@ -81,7 +55,7 @@ router.post("login", (req, res) => {
                 req.session.username = dbUser.username;
                 req.session.loggedIn = true;
             })
-        })    
+        })
 })
 
 router.post('/logout', (req, res) => {
@@ -96,12 +70,12 @@ router.post('/logout', (req, res) => {
 })
 
 router.put("/:id", (req, res) => {
-  User.update(req.body, {
-    individualHooks: true,
-    where: {
-      id: req.params.id,
-    },
-  });
+    User.update(req.body, {
+        individualHooks: true,
+        where: {
+            id: req.params.id,
+        },
+    });
 });
 
 module.exports = router;
