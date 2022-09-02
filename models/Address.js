@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 
 // create our Address Model
-class Address extends Model {}
+class Address extends Model { }
 
 
 // Creating fileds/columns for Address model
@@ -38,6 +38,13 @@ Address.init(
             type: DataTypes.STRING,
             allowNull: false
         }
+    },
+
+    {
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
+        modelName: "address",
     }
 );
 
