@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User , Address } = require('../../models');
 
 // Requirement: GET and POST routes for retrieving and adding new data
 
