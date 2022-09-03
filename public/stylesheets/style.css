@@ -3,6 +3,15 @@ body {
   height: 100%;
 }
 
+button {
+  background-color: white;
+  padding: 1%;
+  border: 0;
+  border-radius: 4px;
+  font-weight: bold;
+  color: white;
+}
+
 header {
   padding: 20px 35px;
   background-color: #39a6b2;
