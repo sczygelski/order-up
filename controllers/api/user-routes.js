@@ -40,7 +40,7 @@ router.post("/", (req, res) => {
         })
 });
 
-
+//login route is: http://localhost:3001/api/users/login
 router.post("login", (req, res) => {
     User.findOne({
         where: {
