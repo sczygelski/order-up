@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
 });
 
 //login route is: http://localhost:3001/api/users/login
-router.post('/login', (req, res) => {
+router.post('/api/users/login', (req, res) => {
     User.findOne({
         where: {
             email: req.body.email
@@ -69,7 +69,7 @@ router.post('/login', (req, res) => {
         });
 })
 
-router.post('/logout', (req, res) => {
+router.post('/api/users/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(204).end()
