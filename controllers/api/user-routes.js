@@ -1,11 +1,11 @@
-const router = require("express").Router();
-const { User } = require("../../models");
+const router = require('express').Router();
+const { User } = require('../../models');
 
 // Requirement: GET and POST routes for retrieving and adding new data
 
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
     User.findAll({
-        attributes: { exclude: ["password"] },
+        attributes: { exclude: ['password'] },
     })
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
@@ -14,9 +14,9 @@ router.get("/", (req, res) => {
         });
 });
 
-router.get("/:id", (req, res) => {
+router.get('/:id', (req, res) => {
     User.findOne({
-        attributes: { exclude: ["password"] },
+        attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
         }
@@ -24,7 +24,7 @@ router.get("/:id", (req, res) => {
         .then(dbUser => res.json(dbUser))
 });
 
-router.post("/", (req, res) => {
+router.post('/', (req, res) => {
     User.create({
         username: req.body.username,
         email: req.body.email,
@@ -41,21 +41,32 @@ router.post("/", (req, res) => {
 });
 
 //login route is: http://localhost:3001/api/users/login
-router.post("login", (req, res) => {
+router.post('/login', (req, res) => {
     User.findOne({
         where: {
             email: req.body.email
         }
     })
         .then(dbUser => {
+            if (!dbUserData) {
+                res.status(400).json({ message: 'No user with that email address!' });
+                return;
+              }
             const validPassword = dbUser.checkPassword(req.body.password)
+
+            if (!validPassword) {
+                res.status(400).json({ message: 'Incorrect password' });
+                return;
+              }
 
             req.session.save(() => {
                 req.session.id = dbUser.id;
                 req.session.username = dbUser.username;
                 req.session.loggedIn = true;
-            })
-        })
+
+                res.json({ user: dbUserData, message: 'You are now logged in!' });
+            });
+        });
 })
 
 router.post('/logout', (req, res) => {
@@ -69,7 +80,7 @@ router.post('/logout', (req, res) => {
     }
 })
 
-router.put("/:id", (req, res) => {
+router.put('/:id', (req, res) => {
     User.update(req.body, {
         individualHooks: true,
         where: {
