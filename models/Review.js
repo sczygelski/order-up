@@ -8,7 +8,7 @@ Review.init(
         //ID of review
         id: {
             type: DataTypes.INTEGER,
-            allowNul: false,
+            allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },

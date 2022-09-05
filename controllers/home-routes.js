@@ -2,6 +2,12 @@ const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { User, Address } = require("../models");
 
+// router.get("/", (req, res) => {
+//   res.render("homepage");
+// });
+
+
+
 router.get('/', (req, res) => {
   res.render('homepage', {
     id: 1,
@@ -16,12 +22,13 @@ router.get('/', (req, res) => {
   });
 });
 
+
 router.get('/login', (req, res) => {
-  //if (req.session.loggedIn) {
-  //  res.redirect('/');
-  //  return;
-  //}
-  res.render('login');
+  // if (req.session.loggedIn) {
+  //   res.redirect('/');
+  //   return;
+  // }
+  res.render('/api/users/login');
 });
 
 module.exports = router;
