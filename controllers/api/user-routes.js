@@ -51,13 +51,13 @@ router.post('/api/users/login', (req, res) => {
             if (!dbUserData) {
                 res.status(400).json({ message: 'No user with that email address!' });
                 return;
-              }
+            }
             const validPassword = dbUser.checkPassword(req.body.password)
 
             if (!validPassword) {
                 res.status(400).json({ message: 'Incorrect password' });
                 return;
-              }
+            }
 
             req.session.save(() => {
                 req.session.id = dbUser.id;
