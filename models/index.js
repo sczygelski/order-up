@@ -22,6 +22,8 @@ Review.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
+
+// not sure if we need the following association
 Review.hasMany(Review, {
   foreignKey: 'excerpt',
 });
