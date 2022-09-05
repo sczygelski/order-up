@@ -28,7 +28,7 @@ router.get('/login', (req, res) => {
   //   res.redirect('/');
   //   return;
   // }
-  res.render('/api/users/login');
+  res.render('/login');
 });
 
 module.exports = router;
