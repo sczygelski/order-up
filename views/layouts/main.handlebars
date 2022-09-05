@@ -15,14 +15,14 @@
         {{#if loggedIn}}
         <button>Make a review</button>>
         {{/if}}
-        <a href="/api/review-routes.js">reviews/logo</a>
+        <a href="/" class="logo">Rent Reviewer</a>
       </h2>
       <ul>
         <li>
           {{#if loggedIn}}
           <button id="logout" class="btn-no-style">logout</button>
           {{else}}
-          <a href="/login">use other login button</a>
+          <a href="/dashboard">Dashboard</a>
           {{/if}}
           <a href="/signup">Sign up/Logout</a>
         </li>
@@ -36,7 +36,7 @@
         </li>
       </ul>
     </nav>
-      {{{body}}}
+    {{{body}}}
 
 
 

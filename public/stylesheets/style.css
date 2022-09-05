@@ -6,7 +6,6 @@ body,
 html {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   height: 100%;
-  color: #f5b937;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -28,11 +27,17 @@ nav ul li {
   list-style-type: none;
   display: inline-block;
   padding: 10px 25px;
+  background-color: #3d9dd0;
+}
+
+nav ul li a:hover {
+  color: black;
+  transition: .4s;
 }
 
 a {
   text-decoration: none;
-  color: #3d9dd0;
+  color: white;
   font-weight: bold;
 }
 
@@ -43,6 +48,17 @@ button {
   border-radius: 4px;
   font-weight: bold;
   color: white;
+}
+
+.logo {
+  color: #3d9dd0;
+  font-size: 35px;
+  letter-spacing: 1px;
+}
+
+.logo:hover {
+  color: black;
+  transition: .4s;
 }
 
 /* Homepage Card Styles */
@@ -88,6 +104,11 @@ h5 {
   margin-bottom: 1px;
 }
 
+h5:hover {
+  color: black;
+  transition: .4s;
+}
+
 .instructions p {
   color: black;
   font-size: 16px;
@@ -106,28 +127,30 @@ h5 {
 }
 
 h4 {
-  font-size: 20px;
+  font-size: 30px;
+  color: white;
 }
 
 .login-form {
-  height: 250px;
+  height: 400px;
   width: 500px;
   padding: 20px 20px;
-  background: white;
+  background: rgb(61, 130, 175);
   border-radius: 20px;
   margin: 15px;
   text-align: center;
   border: 5px solid rgb(61, 130, 175);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-direction: column;
 }
 
 .signup-form {
-  height: 250px;
+  height: 400px;
   width: 500px;
   padding: 20px 20px;
   background: white;
+  background: rgb(61, 130, 175);
   border-radius: 20px;
   margin: 15px;
   text-align: center;
@@ -135,6 +158,23 @@ h4 {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+}
+
+.form-input {
+  border: 1px solid rgb(61, 130, 175);
+  display: block;
+  padding: 7px 15px;
+  font-size: 16px;
+  color: rgb(61, 130, 175);
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, .75);
+}
+
+.form-input:focus {
+  background-color: rgba(255, 255, 255, 1);
+  outline: none;
 }
 
 /* Footer Styles */
