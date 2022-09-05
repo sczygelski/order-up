@@ -12,20 +12,7 @@ html {
   flex-direction: column;
 }
 
-a {
-  text-decoration: none;
-  color: #3d9dd0;
-  font-weight: bold;
-}
-
-button {
-  background-color: white;
-  padding: 1%;
-  border: 0;
-  border-radius: 4px;
-  font-weight: bold;
-  color: white;
-}
+/* Nav Styles */
 
 nav {
   padding: 20px 35px;
@@ -42,6 +29,23 @@ nav ul li {
   display: inline-block;
   padding: 10px 25px;
 }
+
+a {
+  text-decoration: none;
+  color: #3d9dd0;
+  font-weight: bold;
+}
+
+button {
+  background-color: white;
+  padding: 1%;
+  border: 0;
+  border-radius: 4px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Card Styles */
 
 .card-container-row {
   display: flex;
@@ -91,6 +95,8 @@ h5 {
   margin-bottom: 50px;
   font-weight: bold;
 }
+
+/* Footer Styles */
 
 .footer {
   width: 100%;
