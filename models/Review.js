@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+<<<<<<< HEAD
 
 // create ourieview model
 class Review extends Model {}
@@ -21,14 +22,42 @@ Review.init(
 
         content: {
             type: DataTypes.STRING,
+=======
+class Review extends Model {}
+
+Review.init(
+    {
+        //ID of review
+        id: {
+            type: DataTypes.INTEGER,
+            allowNul: false,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        //rating by stars
+        rating: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        reviewbody: {
+            type: DataTypes.STRING,
+            allowNull: false
+>>>>>>> 3350475e28336288152c6c4337cc32ea8b07e685
         }
     },
     {
         sequelize,
         freezeTableName: true,
         underscored: true,
+<<<<<<< HEAD
         modelName: "address",
     }
 );
 
 module.exports = Address;
+=======
+        modelName: "review"
+    }
+)
+module.exports = Review;
+>>>>>>> 3350475e28336288152c6c4337cc32ea8b07e685
