@@ -26,7 +26,8 @@ Address.init(
         // Street address
         street: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         // City
         city: {

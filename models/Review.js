@@ -17,20 +17,22 @@ Review.init(
             type: DataTypes.INTEGER,
             allowNull: true
         },
-        reviewbody: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
+
         address: {
             type: DataTypes.STRING,
             allowNull: false,
             references: {
                 model: 'address',
-                key: 'id'
+                key: 'street'
             }
         },
+        reviewbody: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
+        },
         excerpt: {
-            type: DataTypes.STRING[20], 
+            type: DataTypes.STRING(20), 
             allowNull: true,
             references: {
                 model: 'review',

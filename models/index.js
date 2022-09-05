@@ -23,9 +23,4 @@ Review.belongsTo(User, {
 });
 
 
-// not sure if we need the following association
-Review.hasMany(Review, {
-  foreignKey: 'excerpt',
-});
-
 module.exports = { User, Address, Review };
