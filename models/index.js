@@ -1,6 +1,6 @@
 const User = require("./User");
 const Address = require("./Address");
-const Review = require("./Review")
+const Review = require("./Review");
 
 //associations
 User.hasMany(Address, {
@@ -14,13 +14,11 @@ Address.belongsTo(User, {
 });
 
 User.hasMany(Review, {
-  foreignKey: 'user_id'
+  foreignKey: "user_id",
 });
-
 
 Review.belongsTo(User, {
-  foreignKey: 'user_id',
+  foreignKey: "user_id",
 });
-
 
 module.exports = { User, Address, Review };

@@ -15,7 +15,7 @@
         {{#if loggedIn}}
         <button>Make a review</button>>
         {{/if}}
-        <a href="/dashboard" class="logo">Rent Reviewer</a>
+        <a href="/api/review-routes.js">reviews/logo</a>
       </h2>
       <ul>
         <li>
@@ -36,36 +36,14 @@
         </li>
       </ul>
     </nav>
+      {{{body}}}
 
-    <main>
-      <div class="card-container-row">
-        <div class="card-container-column">
-          <div class="card">
-            <h5>Read Reviews</h5>
-            <div class="instructions">
-              <p>Click here to read a review of other rental properties</p>
-            </div>
-          </div>
-
-          <div class="card">
-            <h5>Write a Review</h5>
-            <div class="instructions">
-              <p>Click here to login and write a review!</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card card-big">
-          <img src="/images/homepagehouse.jpg"></img>
-        </div>
-      </div>
-    </main>
 
 
     <div class="footer">
-      <h3>Made by Ava S, Jonny T, Kal O, and Susan B</h2>
-        <p>
-          &copy; 2022
+      <h2>Made by Ava S, Jonny T, Kal O, and Susan B</h2>
+      <p>
+        &copy; 2022
     </div>
 
     {{#if loggedIn}}
