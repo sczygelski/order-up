@@ -19,8 +19,8 @@ nav {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  position: -webkit-sticky;
-  position: sticky;
+  /* position: -webkit-sticky;
+  position: sticky; */
   top: 0;
 }
 
@@ -45,7 +45,7 @@ button {
   color: white;
 }
 
-/* Card Styles */
+/* Homepage Card Styles */
 
 .card-container-row {
   display: flex;
@@ -94,6 +94,47 @@ h5 {
   line-height: 27px;
   margin-bottom: 50px;
   font-weight: bold;
+}
+
+/* Login Page */
+
+.forms {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+.login-form {
+  height: 250px;
+  width: 500px;
+  padding: 20px 20px;
+  background: white;
+  border-radius: 20px;
+  margin: 15px;
+  text-align: center;
+  border: 5px solid rgb(61, 130, 175);
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.signup-form {
+  height: 250px;
+  width: 500px;
+  padding: 20px 20px;
+  background: white;
+  border-radius: 20px;
+  margin: 15px;
+  text-align: center;
+  border: 5px solid rgb(61, 130, 175);
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
 
 /* Footer Styles */
