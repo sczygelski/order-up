@@ -1,5 +1,6 @@
 const User = require("./User");
 const Address = require("./Address");
+const Review = require("./Review")
 
 //associations
 User.hasMany(Address, {
@@ -12,4 +13,17 @@ Address.belongsTo(User, {
   onDelete: "SET NULL",
 });
 
-module.exports = { User, Address };
+User.hasMany(Review, {
+  foreignKey: 'user_id'
+});
+
+
+Review.belongsTo(User, {
+  foreignKey: 'user_id',
+});
+
+Review.hasMany(Review, {
+  foreignKey: 'excerpt',
+});
+
+module.exports = { User, Address, Review };
