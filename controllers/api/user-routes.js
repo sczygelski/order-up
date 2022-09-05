@@ -72,21 +72,22 @@ router.post('/', (req, res) => {
 });
 
 //login route is: http://localhost:3001/api/users/login
-router.post('/api/users/login', (req, res) => {
+router.post('/login', (req, res) => {
     User.findOne({
         where: {
-            email: req.body.email
+            username: req.body.username
         }
     })
-        .then(dbUser => {
+        .then(dbUserData => {
             if (!dbUserData) {
-                res.status(400).json({ message: 'No user with that email address!' });
+                res.status(400).json({ message: 'There is no member with that username!' })
                 return;
             }
-            const validPassword = dbUser.checkPassword(req.body.password)
+
+            const validPassword = dbUserData.validatePassword(req.body.password);
 
             if (!validPassword) {
-                res.status(400).json({ message: 'Incorrect password' });
+                res.status(400).json({ message: 'Incorrect password! Try again.' });
                 return;
             }
 
@@ -98,7 +99,7 @@ router.post('/api/users/login', (req, res) => {
                 res.json({ user: dbUserData, message: 'You are now logged in!' });
             });
         });
-})
+});
 
 router.post('/api/users/logout', (req, res) => {
     if (req.session.loggedIn) {

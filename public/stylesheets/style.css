@@ -24,17 +24,31 @@ nav {
   top: 0;
 }
 
+h2 {
+  border: 5px solid rgb(61, 130, 175);
+  background-color: rgb(61, 130, 175);
+}
+
 nav ul li {
   list-style-type: none;
   display: inline-block;
   padding: 10px 25px;
+  border: 5px solid rgb(61, 130, 175);
+  background-color: rgb(61, 130, 175);
 }
 
 a {
   text-decoration: none;
-  color: #3d9dd0;
+  color: white;
   font-weight: bold;
+  text-transform: capitalize;
 }
+
+nav ul li a:hover {
+  color: rgb(5, 5, 5);
+  transition: .4s;
+}
+
 
 button {
   background-color: white;
@@ -65,7 +79,6 @@ button {
   width: 500px;
   padding: 20px 35px;
   background: white;
-  border-radius: 20px;
   margin: 15px;
   position: relative;
   overflow: hidden;
