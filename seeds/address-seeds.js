@@ -34,6 +34,6 @@ const addressdata = [
     }
 ]    
 
-const seedAddress = () => Address.bulkCreate(userdata, {individualHooks: true});
+const seedAddress = () => Address.bulkCreate(addressdata, {individualHooks: true});
 
 module.exports = seedAddress;
