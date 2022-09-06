@@ -56,12 +56,12 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password
     })
-        .then(dbUser => {
+        .then(dbUserData => {
             req.session.save(() => {
                 req.session.user_id = dbUserData.id;
                 req.session.username = dbUserData.username;
                 req.session.loggedIn = true;
-                res.json(dbUser);
+                res.json(dbUserData);
             });
         })
         .catch(err => {
