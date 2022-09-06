@@ -1,9 +1,11 @@
 {
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.5",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
     "lodash": "^4.17.21",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
@@ -27,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/sczygelski/order-up/issues"
   },
-  "homepage": "https://github.com/sczygelski/order-up#readme"
+  "homepage": "https://github.com/sczygelski/order-up#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^7.5.0"
+  }
 }
