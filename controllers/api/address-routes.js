@@ -6,7 +6,28 @@ const withAuth = require('../../utils/auth');
 // get all
 
 router.get('/', (req, res) => {
-    Address.findAll()
+    Address.findAll({
+    attributes: [
+      'id',
+      'houseNumber'
+  ],
+  include: [
+      {
+          model: Review,
+          attributes: ['id', 'rating'],
+          // include: {
+          //     model: User,
+          //     attributes: ['username']
+          // }
+      },
+      {
+          model: User,
+          attributes: ['username']
+      }
+  ]
+  
+})
+
         .then(dbAddressData => res.json(dbAddressData))
         .catch(err => {
             console.log(err);
