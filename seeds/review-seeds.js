@@ -22,6 +22,6 @@ const reviewdata = [
     },
 ]    
 
-const seedReview = () => Address.bulkCreate(reviewdata, {individualHooks: true});
+const seedReview = () => Review.bulkCreate(reviewdata, {individualHooks: true});
 
 module.exports = seedReview;
