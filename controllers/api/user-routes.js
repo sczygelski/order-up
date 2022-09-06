@@ -33,7 +33,7 @@ router.get('/:id', (req, res) => {
             {
                 model: Stars,
                 attirubtes: ['id', 'user_id', 'review_id']
-            }
+            },
             {
                 model: Address,
                 attributes: ['id', 'address_text', 'user_id', 'review_id']
