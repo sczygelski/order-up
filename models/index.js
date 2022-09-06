@@ -17,8 +17,16 @@ User.hasMany(Review, {
   foreignKey: "user_id",
 });
 
+Address.hasMany(Review, {
+  foreignKey: "address_id",
+});
+
 Review.belongsTo(User, {
   foreignKey: "user_id",
 });
+
+// Review.belongsTo(Address, {
+//   foreignKey: "address_id",
+// });
 
 module.exports = { User, Address, Review };

@@ -1,14 +1,35 @@
 const router = require("express").Router();
-const { Review } = require('../../models');
+const { Review, Address, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
-    Review.findAll()
-        .then(dbReviewData => res.json(dbReviewData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    Review.findAll({
+        attributes: [
+            'id',
+            'rating'
+        ],
+    
+        include: [
+            {
+                model: Address,
+                attributes: ['id', 'houseNumber', 'street', 'city', 'state'],
+                // include: {
+                //     model: User,
+                //     attributes: ['username']
+                // }
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+        
+    })
+            .then(dbReviewData => res.json(dbReviewData))
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err);
+            });
 });
 
 router.post('/', withAuth, (req, res) => {
@@ -27,21 +48,21 @@ router.post('/', withAuth, (req, res) => {
 
 router.delete('/:id', withAuth, (req, res) => {
     Review.destroy({
-      where: {
-        id: req.params.id
-      }
-    })
-      .then(dbReviewData => {
-        if (!dbReviewData) {
-          res.status(404).json({ message: 'No review found with this id!' });
-          return;
+        where: {
+            id: req.params.id
         }
-        res.json(dbReviewData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
+    })
+        .then(dbReviewData => {
+            if (!dbReviewData) {
+                res.status(404).json({ message: 'No review found with this id!' });
+                return;
+            }
+            res.json(dbReviewData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
 module.exports = router;
