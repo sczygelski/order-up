@@ -40,4 +40,29 @@ router.get('/signup', (req, res) => {
 });
 
 
+router.get('/dashboard', (req, res) => {
+  // if (req.session.loggedIn) {
+  //   res.redirect('/');
+  //   return;
+  // }
+  res.render('dashboard');
+});
+
+
+router.get('/add-review', (req, res) => {
+  // if (req.session.loggedIn) {
+  //   res.redirect('/');
+  //   return;
+  // }
+  res.render('add-review');
+});
+
+router.get('/view-reviews', (req, res) => {
+  // if (req.session.loggedIn) {
+  //   res.redirect('/');
+  //   return;
+  // }
+  res.render('view-reviews');
+});
+
 module.exports = router;
