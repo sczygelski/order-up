@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Address, Review } = require('../../models');
+const { User, Review, Stars, Address } = require('../../models');
 
 // Requirement: GET and POST routes for retrieving and adding new data
 // Get all users
@@ -30,10 +30,13 @@ router.get('/:id', (req, res) => {
                     attributes: ['street']
                 }
             },
-
+            {
+                model: Stars,
+                attirubtes: ['id', 'user_id', 'review_id']
+            }
             {
                 model: Address,
-                attributes: ['id', 'houseNumber', 'street', 'city', 'state']
+                attributes: ['id', 'address_text', 'user_id', 'review_id']
             }
         ]
     })
