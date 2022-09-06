@@ -41,4 +41,4 @@ Review.hasMany(Stars, {
 });
 
 
-module.exports = { User, Review, Stars };
+module.exports = { User, Review, Stars, Address };
