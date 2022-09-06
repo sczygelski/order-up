@@ -18,14 +18,14 @@ Review.init(
             allowNull: true
         },
 
-        address: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            references: {
-                model: 'address',
-                key: 'street'
-            }
-        },
+        // address: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     references: {
+        //         model: 'address',
+        //         key: 'street'
+        //     }
+        // },
         reviewbody: {
             type: DataTypes.STRING,
             allowNull: false,
