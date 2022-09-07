@@ -4,7 +4,6 @@ const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     Review.findAll({
-    
         include: [
             {
                 model: User,
