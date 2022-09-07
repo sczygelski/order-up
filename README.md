@@ -10,6 +10,7 @@ This application will allow users to leave and view reviews of rental properties
 * JavaScript
 * Sequelize
 * Bcyrpt
+* Mocha
 
 ## Deployment
 https://morning-meadow-66155.herokuapp.com/
