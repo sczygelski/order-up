@@ -1,14 +1,17 @@
 async function newFormHandler(event) {
     event.preventDefault();
   
-    const address = document.querySelector('input[name="review-title"]').value;
-    const review_content = document.querySelector('input[name="review-url"]').value;
-  
+    const address = document.querySelector('input[name="review-title"]').value.trim();
+    const review_content = document.querySelector('input[name="review-text"]').value.trim();
+    console.log(address);
+
+    //console.log(review_content);
     const response = await fetch(`/api/reviews`, {
       method: 'POST',
       body: JSON.stringify({
-        title,
-        review_url
+        address,
+        review_content
+        // session id thing goes here
       }),
       
       headers: {
@@ -16,14 +19,16 @@ async function newFormHandler(event) {
       }
       
     });
-  
+    console.log(response);
     if (response.ok) {
-      document.location.replace('/dashboard');
+
+      // this is breaking stuff
+      //document.location.replace('/dashboard');
       console.log("review created");
     } else {
       alert(response.statusText);
     }
   }
   
-  document.querySelector('.new-review-form').addEventListener('submit', newFormHandler);
+  document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
   

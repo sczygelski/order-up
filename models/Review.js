@@ -19,8 +19,7 @@ Review.init(
          },
         review_content: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
+            allowNull: true,
         },
        // excerpt: {
        //     type: DataTypes.STRING(20), 
