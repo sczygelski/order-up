@@ -1,7 +1,29 @@
-<form class="new-post-form">
+{{!-- <form class="new-post-form">
     <h4>Reviews should be listed here...</h4>
 
 
 </form>
+
+ --}}
+
+     <div class="meta">
+        <p>Reviews should be listed here...</p>
+      
+    </div>
+
+
+<div class="reviews">
+  {{#each this}}
+  <section class="review">
+    <div class="meta">
+        <p>Reviews should be listed here...</p>
+      
+    </div>
+    <div class="text">
+      {{review_text}}
+    </div>
+  </section>
+  {{/each}}
+</div>
 
 <script src="/javascript/review.js"></script>
