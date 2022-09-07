@@ -21,6 +21,7 @@ router.get('/', (req, res) => {
 router.post('/', withAuth, (req, res) => {
     // expects => {review_text: "This is the review", user_id: 1, "something besides 'post_id'?""}
     Review.create({
+        
         review_content: req.body.review_content,
         address: req.body.address,
         user_id: req.session.user_id
