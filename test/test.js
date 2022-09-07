@@ -13,3 +13,10 @@ beforeEach(async function () {
       dbUserData.should.have.length(10);
     });
   });  
+
+
+it('double done', function (done) {
+  // Calling `done()` twice is an error
+  setImmediate(done);
+  setImmediate(done);
+});
