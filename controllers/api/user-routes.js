@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Review, Stars, Address } = require('../../models');
+const { User, Review, } = require('../../models');
 
 // Requirement: GET and POST routes for retrieving and adding new data
 // Get all users
