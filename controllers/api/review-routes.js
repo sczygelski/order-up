@@ -19,10 +19,10 @@ router.get('/', (req, res) => {
             });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
     Review.create({
-        review_content: req.body.review_content,
         address: req.body.address,
+        review_content: req.body.review_content,
         user_id: req.session.user_id
     })
         .then(dbReviewData => res.json(dbReviewData))
@@ -31,7 +31,6 @@ router.post('/', withAuth, (req, res) => {
             res.status(400).json(err);
         });
         console.log("review written")
-
 });
 
 router.delete('/:id', withAuth, (req, res) => {

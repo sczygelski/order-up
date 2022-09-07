@@ -1,14 +1,14 @@
 async function newFormHandler(event) {
     event.preventDefault();
   
-    const address = document.querySelector('input[name="review-address"]').value;
-    const review_content = document.querySelector('input[name="review_content"]').value;
+    const address = document.querySelector('input[name="review-title"]').value;
+    const review_content = document.querySelector('input[name="review-url"]').value;
   
     const response = await fetch(`/api/reviews`, {
       method: 'POST',
       body: JSON.stringify({
-        address,
-        review_content
+        title,
+        review_url
       }),
       
       headers: {
