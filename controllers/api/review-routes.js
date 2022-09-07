@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, Review, Stars, Address } = require('../../models');
+const sequelize = require("../../config/connection");
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
@@ -18,12 +19,15 @@ router.get('/', (req, res) => {
             });
 });
 
-router.post('/', withAuth, (req, res) => {
-    // expects => {review_text: "This is the review", user_id: 1, "something besides 'post_id'?""}
+router.post('/', (req, res) => {
     Review.create({
+<<<<<<< HEAD
         
         review_content: req.body.review_content,
+=======
+>>>>>>> 2ace5a4bc51508da1d85564ecbff04575480cf99
         address: req.body.address,
+        review_content: req.body.review_content,
         user_id: req.session.user_id
     })
         .then(dbReviewData => res.json(dbReviewData))
@@ -32,7 +36,6 @@ router.post('/', withAuth, (req, res) => {
             res.status(400).json(err);
         });
         console.log("review written")
-
 });
 
 router.delete('/:id', withAuth, (req, res) => {
