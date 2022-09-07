@@ -15,7 +15,7 @@ async function loginFormHandler(event) {
         });
         console.log(response);
         if (response.ok) {
-            document.location.replace('/dashboard');
+            document.location.replace('/add-review');
         }
         else {
             alert(response.statusText);

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Review, Stars, Address } = require('../../models');
+const { User, Review, } = require('../../models');
 const sequelize = require("../../config/connection");
 const withAuth = require('../../utils/auth');
 
@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
                 model: User,
                 attributes: ['username']
             }
-        ]   
+        ]  
     })
             .then(dbReviewData => res.json(dbReviewData))
             .catch(err => {
@@ -18,6 +18,28 @@ router.get('/', (req, res) => {
                 res.status(500).json(err);
             });
 });
+
+
+
+router.get('/:id', (req, res) => {
+    Review.findOne({
+        where: {
+            id: req.params.id
+        },
+    })
+        .then(dbUserData => {
+            if (!dbUserData) {
+                res.status(404).json({ message: 'No review found with this id' });
+                return;
+            }
+            res.json(dbUserData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 
 router.post('/', (req, res) => {
     Review.create({

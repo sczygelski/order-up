@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+<<<<<<< HEAD
 class Review extends Model {
     static stars(body, models) {
       return models.stars.create({
@@ -34,6 +35,10 @@ class Review extends Model {
     }
   }
 
+=======
+class Review extends Model {}
+   
+>>>>>>> f698c4dcc91149fd7d6c50d8fd1274a5d1e624bd
 
 Review.init(
     {
@@ -50,8 +55,7 @@ Review.init(
          },
         review_content: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
+            allowNull: true,
         },
        // excerpt: {
        //     type: DataTypes.STRING(20), 

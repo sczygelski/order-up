@@ -1,10 +1,12 @@
-<article class="post">
-  <div class="title">
-    Review of {{address}}
-    <span>({{post.review_content}})</span>
-  </div>
 
 
-</article>
-
-<script src="/javascript/review.js"></script>
+<section>
+  <h2>Your reviews</h2>
+  <ol>
+    {{#each reviews as |review|}}
+    <li>
+      {{> review-info review}}
+    </li>
+    {{/each}}
+  </ol>
+</section>

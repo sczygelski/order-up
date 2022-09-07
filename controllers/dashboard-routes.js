@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { User, Address, Review } = require('../models');
+const { User, Review } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/view-reviews', withAuth, (req, res) => {
@@ -15,6 +15,7 @@ router.get('/view-reviews', withAuth, (req, res) => {
             'address',
             'review_content',
             'created_at'
+<<<<<<< HEAD
         ],
 
         include: [
@@ -33,16 +34,19 @@ router.get('/view-reviews', withAuth, (req, res) => {
         ]
 
 
+=======
+        ],                            
+>>>>>>> f698c4dcc91149fd7d6c50d8fd1274a5d1e624bd
     })
         .then(dbReviewData => {
             // serialize data before passing to template
             const reviews = dbReviewData.map(review => review.get({ plain: true }));
             res.render('dashboard', { reviews, loggedIn: true });
-        });
-    //     .catch (err => {
-    //     console.log(err);
-    //     res.status(500).json(err);
-    // });
+        })
+         .catch (err => {
+         console.log(err);
+         res.status(500).json(err);
+     });
 });
 
 
