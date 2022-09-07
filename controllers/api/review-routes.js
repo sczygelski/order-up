@@ -21,11 +21,6 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     Review.create({
-<<<<<<< HEAD
-        
-        review_content: req.body.review_content,
-=======
->>>>>>> 2ace5a4bc51508da1d85564ecbff04575480cf99
         address: req.body.address,
         review_content: req.body.review_content,
         user_id: req.session.user_id
