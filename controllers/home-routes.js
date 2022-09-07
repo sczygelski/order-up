@@ -57,12 +57,12 @@ router.get('/add-review', (req, res) => {
   res.render('add-review');
 });
 
-router.get('/api/reviews', (req, res) => {
+router.get('/view-reviews', (req, res) => {
   // if (req.session.loggedIn) {
   //   res.redirect('/');
   //   return;
   // }
-  res.render('/api/reviews');
+  res.render('view-reviews');
 });
 
 module.exports = router;
