@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Address, Review } = require('../../models');
+const { User, Review, Stars, Address } = require('../../models');
 
 // Requirement: GET and POST routes for retrieving and adding new data
 // Get all users
@@ -30,10 +30,13 @@ router.get('/:id', (req, res) => {
                     attributes: ['street']
                 }
             },
-
+            {
+                model: Stars,
+                attirubtes: ['id', 'user_id', 'review_id']
+            },
             {
                 model: Address,
-                attributes: ['id', 'houseNumber', 'street', 'city', 'state']
+                attributes: ['id', 'address_text', 'user_id', 'review_id']
             }
         ]
     })
@@ -56,12 +59,12 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password
     })
-        .then(dbUser => {
+        .then(dbUserData => {
             req.session.save(() => {
                 req.session.user_id = dbUserData.id;
                 req.session.username = dbUserData.username;
                 req.session.loggedIn = true;
-                res.json(dbUser);
+                res.json(dbUserData);
             });
         })
         .catch(err => {
@@ -71,19 +74,19 @@ router.post('/', (req, res) => {
 
 });
 
-//login route is: http://localhost:3001/api/users/login
-router.post('/api/users/login', (req, res) => {
+//login route is: http://localhost:3001/api/users/login   ???
+router.post('/login', (req, res) => {
     User.findOne({
         where: {
             email: req.body.email
         }
     })
-        .then(dbUser => {
+        .then(dbUserData => {
             if (!dbUserData) {
                 res.status(400).json({ message: 'No user with that email address!' });
                 return;
             }
-            const validPassword = dbUser.checkPassword(req.body.password)
+            const validPassword = dbUserData.checkPassword(req.body.password)
 
             if (!validPassword) {
                 res.status(400).json({ message: 'Incorrect password' });
@@ -93,6 +96,7 @@ router.post('/api/users/login', (req, res) => {
             req.session.save(() => {
                 req.session.user_id = dbUserData.id;
                 req.session.username = dbUserData.username;
+                req.session.email = dbUserData.email;
                 req.session.loggedIn = true;
 
                 res.json({ user: dbUserData, message: 'You are now logged in!' });
