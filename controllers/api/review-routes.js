@@ -4,26 +4,13 @@ const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     Review.findAll({
-        attributes: [
-            'id',
-            'rating'
-        ],
     
         include: [
-            {
-                model: Address,
-                attributes: ['id', 'houseNumber', 'street', 'city', 'state'],
-                // include: {
-                //     model: User,
-                //     attributes: ['username']
-                // }
-            },
             {
                 model: User,
                 attributes: ['username']
             }
-        ]
-        
+        ]   
     })
             .then(dbReviewData => res.json(dbReviewData))
             .catch(err => {
@@ -35,9 +22,9 @@ router.get('/', (req, res) => {
 router.post('/', withAuth, (req, res) => {
     // expects => {review_text: "This is the review", user_id: 1, "something besides 'post_id'?""}
     Review.create({
-        review_text: req.body.review_text,
-        user_id: req.session.user_id,
-        //post_id: req.body.post_id
+        review_content: req.body.review_content,
+        address: req.body.address,
+        user_id: req.session.user_id
     })
         .then(dbReviewData => res.json(dbReviewData))
         .catch(err => {
