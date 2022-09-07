@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const { User, Address, Review } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, (req, res) => {
+router.get('/view-reviews', withAuth, (req, res) => {
     Review.findAll({
         where: {
             // ID from the session
@@ -17,20 +17,20 @@ router.get('/', withAuth, (req, res) => {
             'created_at'
         ],
 
-        //include: [
-        //    {
-        //        model: Address,
-        //        attributes: ['id', 'review_text', 'review_id', 'user_id', 'created_at'],
-        //        include: {
-        //            model: User,
-        //            attributes: ['username']
-        //        }
-        //    },
-        //    {
-        //        model: User,
-        //        attributes: ['username']
-        //    }
-        //]
+        include: [
+            {
+                model: Address,
+                attributes: ['id', 'review_text', 'review_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
 
 
     })
@@ -44,5 +44,6 @@ router.get('/', withAuth, (req, res) => {
     //     res.status(500).json(err);
     // });
 });
+
 
 module.exports = router;

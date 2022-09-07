@@ -2,13 +2,13 @@ async function newFormHandler(event) {
     event.preventDefault();
 
     const address = document.querySelector('textarea[name="review-body"]').value.trim();
-    const review_content = window.location.toString().split('/') [
+    const review_content = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
 
     if (review_text) {
         const response = await fetch('/reviews', {
-            method: 'POST',
+            method: 'GET',
             body: JSON.stringify({
                 post_id,
                 review_text
@@ -26,4 +26,4 @@ async function newFormHandler(event) {
     }
 };
 
-document.querySelector('.review-form').addEventListener('submit', newFormHandler)
+document.querySelector('.post').addEventListener('submit', newFormHandler)

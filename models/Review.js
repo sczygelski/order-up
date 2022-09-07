@@ -19,16 +19,16 @@ class Review extends Model {
             //the stars tally
             [sequelize.literal("(SELECT COUNT(*) FROM thumbs WHERE review.id = stars.review_id)"), "stars_count"]
           ],
-         // include: [
-         //   {
-         //     model: models.Comment,
-         //     attributes: ["id", "comment_text", "Review_id", "user_id", "created_at"],
-         //     include: {
-         //       model: models.User,
-         //       attributes: ["username"]
-         //     }
-         //   }
-         // ]
+        //  include: [
+        //    {
+        //      model: models.Comment,
+        //      attributes: ["id", "comment_text", "Review_id", "user_id", "created_at"],
+        //      include: {
+        //        model: models.User,
+        //        attributes: ["username"]
+        //      }
+        //    }
+        //  ]
         });
       });
     }

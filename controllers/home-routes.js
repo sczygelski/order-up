@@ -6,22 +6,54 @@ const { User, Review, Stars, Address } = require("../models");
 //   res.render("homepage");
 // });
 
-
-
 router.get('/', (req, res) => {
-  res.render('homepage', {
-    id: 1,
-    post_url: 'https://handlebarsjs.com/guide/',
-    title: 'Handlebars Docs',
-    created_at: new Date(),
-    vote_count: 10,
-    comments: [{}, {}],
-    user: {
-      username: 'test_user'
-    }
-  });
+  Review.findAll({
+    attributes: ['id', 'address', 'review_content', 'created_at'],
+    include: [
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+  })
+    .then(dbReviewData => {
+      const reviews = dbReviewData.map(allReviews => allReviews.get({ plain: true }));
+
+      res.render('homepage', {
+        reviews,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
+router.get('/reviews/:id', (req, res) => {
+  Review.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: ['id', 'address', 'review_content', 'created_at'],
+    // include: [
+    //   {
+    //     model: User,
+    //     attributes: ['user_id']
+    //   }
+    // ]
+  })
+    .then(dbReviewData => {
+      if (!dbReviewData) {
+        res.status(404).json({ message: 'No post found with this id.' });
+        return;
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 router.get('/login', (req, res) => {
   // if (req.session.loggedIn) {

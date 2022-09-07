@@ -3,40 +3,58 @@
   <div class="dashboard">
     <h2>View Your Posts</h2>
     {{#if posts.length}}
-      <ol>
-        {{#each posts as |post|}}
-        <li>
-          <article>
-            <div>
-              <h3><span><a class="post-title">{{post.title}}</a></span></h3>
-              <p>Created on {{format_date post.created_at}}</p>
-            </div>
-            </br>
-            <div class="bottom-line">
-              {{post.post_contents}}
-            </div>
-          </article>
-        </li>
-        </br>
-        {{/each}}
-      </ol>
-    </section>
-    {{/if}}
-  </div>
+    <ol>
+      {{#each posts as |post|}}
+      <li>
+        <article>
+          <div>
+            <h3><span><a class="post-title">{{post.title}}</a></span></h3>
+            <p>Created on {{format_date post.created_at}}</p>
+          </div>
+          </br>
+          <div class="bottom-line">
+            {{post.post_contents}}
+          </div>
+        </article>
+      </li>
+      </br>
+      {{/each}}
+    </ol>
+</section>
+{{/if}}
+</div>
 
-  <div class="dashboard">
-    <h2>Create New Post</h2>
+<div class="dashboard">
+  <h2>Create New Post</h2>
 
-    <form class="new-post-form">
-      <div>
-        <label for="review-title" class="review-text">Title</label>
-        <input type="text" class="title" placeholder="Review Title" />
-      </div>
-      <div>
-        <label for="review-text" class="review-text">Review</label>
-        <input type="text" id="review" class="review" placeholder="Write Your Review" />
-      </div>
-      <input type="submit" class="btn"></input>
-    </form>
-  </div>
+  <form class="new-post-form">
+    <div>
+      <label for="review-title" class="review-text">Title</label>
+      <input type="text" class="title" placeholder="Review Title" />
+    </div>
+
+    <div class="rate">
+      <input type="radio" id="star5" name="rate" value="5" />
+      <label for="star5" title="text" class="review-text">5 stars</label>
+
+      <input type="radio" id="star4" name="rate" value="4" />
+      <label for="star4" title="text" class="review-text">4 stars</label>
+
+      <input type="radio" id="star3" name="rate" value="3" />
+      <label for="star3" title="text" class="review-text">3 stars</label>
+
+      <input type="radio" id="star2" name="rate" value="2" />
+      <label for="star2" title="text" class="review-text">2 stars</label>
+
+      <input type="radio" id="star1" name="rate" value="1" />
+      <label for="star1" title="text" class="review-text">1 star</label>
+    </div>
+
+    <div>
+      <label for="review-text" class="review-text">Review</label>
+      <input type="text" id="review" class="review" placeholder="Write Your Review" />
+    </div>
+    <input type="submit" class="btn"></input>
+  </form>
+</div>
 </section>
