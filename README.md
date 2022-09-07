@@ -12,6 +12,9 @@ This application will allow users to leave and view reviews of rental properties
 * Bcyrpt
 * Mocha
 
+## Image
+![](./assets/images/image.png)
+
 ## Deployment
 https://morning-meadow-66155.herokuapp.com/
 
