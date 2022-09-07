@@ -118,6 +118,10 @@ a:hover {
   font-weight: bold;
 }
 
+p {
+  color: black;
+}
+
 /* Login Page */
 
 .forms {

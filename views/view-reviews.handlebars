@@ -1,35 +1,10 @@
 <article class="post">
   <div class="title">
-
-    <a href="/api/reviews/{{review.id}}">{{review.address}}</a>
-    <span>{{review.review_content}}</span>
-
+    <a href="{{post.address}}">{{post.address}}</a>
+    <span>({{post.review_content}})</span>
   </div>
 
-  <ol>
-    {{#each posts as |post|}}
-    <li>
-      <article>
-        <div>
-          <h3><span><a href="/api/reviews/{{review.id}}" class="post-title">{{post.title}}</a></span></h3>
-          <p>Created on {{format_date post.created_at}}</p>
-        </div>
-        </br>
-        <div class="bottom-line">
-          {{post.post_contents}}
-        </div>
-      </article>
-    </li>
-    </br>
-    {{/each}}
-  </ol>
-  </section>
 
-  {{!-- <div class="meta">
-    {{review.created_at}}
-    |
-    <a href="/post/{{review.id}}">{{review.comments.length}} comment(s)</a>
-  </div> --}}
 </article>
 
 <script src="/javascript/review.js"></script>

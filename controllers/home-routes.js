@@ -30,30 +30,43 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/reviews/:id', (req, res) => {
-  Review.findOne({
-    where: {
-      id: req.params.id
-    },
-    attributes: ['id', 'address', 'review_content', 'created_at'],
-    // include: [
-    //   {
-    //     model: User,
-    //     attributes: ['user_id']
-    //   }
-    // ]
-  })
-    .then(dbReviewData => {
-      if (!dbReviewData) {
-        res.status(404).json({ message: 'No post found with this id.' });
-        return;
-      }
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+// router.get('/api/reviews/:id', (req, res) => {
+//   Review.findOne({
+//     where: {
+//       id: req.params.id
+//     },
+//     attributes: ['id', 'address', 'review_content', 'created_at'],
+//     // include: [
+//     //   {
+//     //     model: User,
+//     //     attributes: ['user_id']
+//     //   }
+//     // ]
+//   })
+//     .then(dbReviewData => {
+//       if (!dbReviewData) {
+//         res.status(404).json({ message: 'No post found with this id.' });
+//         return;
+//       }
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
+
+router.get('/api/reviews/:id', (req, res) => {
+  const post = {
+    id: 16,
+    address: 'https://handlebarsjs.com/guide/',
+    review_content: 'Handlebars Docs',
+    created_at: new Date(),
+  };
+
+  res.render('view-reviews', { post });
 });
+
+
 
 router.get('/login', (req, res) => {
   // if (req.session.loggedIn) {
