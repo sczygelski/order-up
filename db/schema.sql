@@ -1,2 +1,3 @@
 CREATE DATABASE  IF NOT EXISTS 'renting'
 USE DATABASE 'renting'
+

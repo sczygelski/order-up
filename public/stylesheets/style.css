@@ -118,6 +118,10 @@ a:hover {
   font-weight: bold;
 }
 
+p {
+  color: black;
+}
+
 /* Login Page */
 
 .forms {
@@ -216,26 +220,34 @@ h3 {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-/* Dashboard Styles */
+/* View Reviews */
 
-.dash {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+#view-review-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-.dashboard {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
+#view-header {
+  font-size: 45px;
 }
 
-/* Sign Up Styles */
+#review-address {
+  color: #3d9dd0;
+  font-size: 30px;
+  text-decoration: underline;
+}
 
-.signup-page {
-  display: flex;
-  justify-content: center;
+#partial-review-address {
+  font-size: 20px;
+  color: black;
+}
+
+.review-card {
+  border: 5px solid rgb(61, 130, 175);
+  margin: 10px;
+  padding: 10px;
+  background-color: rgb(201, 201, 201);
 }
 
 /* Footer Styles */
