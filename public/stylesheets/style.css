@@ -131,7 +131,7 @@ a:hover {
 
 h4 {
   font-size: 30px;
-  color: rgb(61, 130, 175);
+  color: white;
 }
 
 .login-form {
@@ -187,6 +187,11 @@ h4 {
   width: 1000px;
 }
 
+h3 {
+  font-size: 30px;
+  color: black;
+}
+
 .new-post-form {
   display: flex;
   justify-content: center;
@@ -215,6 +220,13 @@ h4 {
   font-size: 30px;
   color: rgb(61, 130, 175);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Sign Up Styles */
+
+.signup-page {
+  display: flex;
+  justify-content: center;
 }
 
 /* Footer Styles */
