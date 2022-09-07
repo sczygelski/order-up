@@ -23,7 +23,7 @@ router.post('/', (req, res) => {
     Review.create({
         address: req.body.address,
         review_content: req.body.review_content,
-        user_id: req.session.user_id
+       //user_id: req.session.user_id
     })
         .then(dbReviewData => res.json(dbReviewData))
         .catch(err => {

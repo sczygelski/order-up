@@ -1,8 +1,8 @@
 async function newFormHandler(event) {
     event.preventDefault();
 
-    const review_text = document.querySelector('textarea[name="review-body"]').value.trim();
-    const post_id = window.location.toString().split('/') [
+    const address = document.querySelector('textarea[name="review-body"]').value.trim();
+    const review_content = window.location.toString().split('/') [
         window.location.toString().split('/').length - 1
     ];
 
