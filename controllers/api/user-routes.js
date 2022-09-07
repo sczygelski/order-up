@@ -21,24 +21,24 @@ router.get('/:id', (req, res) => {
             id: req.params.id
         },
 
-        include: [
-            {
-                model: Review,
-                attributes: ['id', 'rating', 'address', 'reviewbody', 'excerpt'],
-                include: {
-                    model: Address,
-                    attributes: ['street']
-                }
-            },
-            {
-                model: Stars,
-                attirubtes: ['id', 'user_id', 'review_id']
-            },
-            {
-                model: Address,
-                attributes: ['id', 'address_text', 'user_id', 'review_id']
-            }
-        ]
+        //include: [
+        //    {
+        //        model: Review,
+        //        attributes: ['id', 'rating', 'address', 'reviewbody', 'excerpt'],
+        //        include: {
+        //            model: Address,
+        //            attributes: ['street']
+        //        }
+        //    },
+        //    {
+        //        model: Stars,
+        //        attirubtes: ['id', 'user_id', 'review_id']
+        //    },
+        //    {
+        //        model: Address,
+        //        attributes: ['id', 'address_text', 'user_id', 'review_id']
+        //    }
+        //]
     })
         .then(dbUserData => {
             if (!dbUserData) {
