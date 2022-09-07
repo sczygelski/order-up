@@ -15,7 +15,6 @@ router.get('/view-reviews', withAuth, (req, res) => {
             'address',
             'review_content',
             'created_at'
-<<<<<<< HEAD
         ],
 
         include: [
@@ -34,9 +33,6 @@ router.get('/view-reviews', withAuth, (req, res) => {
         ]
 
 
-=======
-        ],                            
->>>>>>> f698c4dcc91149fd7d6c50d8fd1274a5d1e624bd
     })
         .then(dbReviewData => {
             // serialize data before passing to template

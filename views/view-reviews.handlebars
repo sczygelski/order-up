@@ -1,12 +1,10 @@
-
-
 <section>
   <h2>Your reviews</h2>
   <ol>
-    {{#each reviews as |review|}}
+
     <li>
-      {{> review-info review}}
+      <a>{{> review-info review}}{{post.address}}{{post.review_content}} </a>
     </li>
-    {{/each}}
+
   </ol>
 </section>
