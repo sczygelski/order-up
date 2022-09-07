@@ -4,6 +4,7 @@ async function newFormHandler(event) {
     const address = document.querySelector('input[name="review-title"]').value.trim();
     const review_content = document.querySelector('input[name="review-text"]').value.trim();
     console.log(address);
+    console.log(review_content);
 
     //console.log(review_content);
     const response = await fetch(`/api/reviews`, {
@@ -22,8 +23,7 @@ async function newFormHandler(event) {
     console.log(response);
     if (response.ok) {
 
-      // this is breaking stuff
-      //document.location.replace('/dashboard');
+      document.location.replace('/view-reviews');
       console.log("review created");
     } else {
       alert(response.statusText);
