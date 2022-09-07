@@ -240,14 +240,14 @@ h3 {
 
 #partial-review-address {
   font-size: 20px;
-  color: white;
+  color: black;
 }
 
 .review-card {
   border: 5px solid rgb(61, 130, 175);
   margin: 10px;
   padding: 10px;
-  background-color: black;
+  background-color: rgb(201, 201, 201);
 }
 
 /* Footer Styles */
